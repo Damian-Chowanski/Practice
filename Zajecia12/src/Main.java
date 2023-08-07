@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ganarateList();
-        System.out.println("Liczba 0 występuje: " + countOccurrences(0));
-        System.out.println("Liczba 13 występuje: " + countOccurrences(13));
-        System.out.println("Liczba 82 występuje: " + countOccurrences(82));
+        /*ganarateList();
+        System.out.println("Liczba 0 występuje: " + countOccurrences(0) +
+                "\nLiczba 13 występuje: " + countOccurrences(13) +
+                "\nLiczba 82 występuje: " + countOccurrences(82));*/
         //generate();
         //display();
     }
