@@ -16,19 +16,21 @@ public class ATM {
         this.accountList = accountList;
     }
 
-    public void createNewAccount(){
+    public void createNewAccount() {
+
         Scanner sc = new Scanner(System.in);
-        int newAcNumber = 1000;
-        if (!accountList.isEmpty()){
-            newAcNumber = accountList.get(accountList.size()-1).getAcNumber() + 1;
-        }
-        if (newAcNumber == -1){ newAcNumber++; }
+        int acNumber = newAcNumber();
         System.out.print("Utwórz Pin: ");
         int newPin = sc.nextInt();
-        System.out.print("Kwota do wpłaty: ");
-        double balance = sc.nextDouble();
-        accountList.add(new Account(newAcNumber,newPin,balance));
-        System.out.println("Twoje konto zostało utworzone. Numer twojego konta to: " + newAcNumber);
+        accountList.add(new Account(acNumber, newPin, 0.0));
+        System.out.println("Twoje konto zostało utworzone. Numer twojego konta to: " + acNumber);
 
+    }
+
+    //This metod generating new account number
+    private int newAcNumber() {
+        if (!accountList.isEmpty()) {
+            return accountList.get(accountList.size() - 1).getAcNumber() + 1;
+        } else return 1000;
     }
 }
