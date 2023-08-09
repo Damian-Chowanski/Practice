@@ -8,9 +8,12 @@ public class Main {
     }
 
     private static void print() {
-        for (int[] ints : multiplication) {
-            for (int j = 0; j < multiplication.length; j++) {
-                System.out.print(ints[j] + " ");
+        for (int i=0; i< multiplication.length;i++){
+            for (int j =0; j < multiplication.length; j++) {
+                if(multiplication[i][j] < 10 || j==9 && multiplication[i][j]%10==0 && i!=9){
+                    System.out.print(" ");
+                }
+                System.out.print(multiplication[i][j]+ " ");
             }
             System.out.println();
         }
