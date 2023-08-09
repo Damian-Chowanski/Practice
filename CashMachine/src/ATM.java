@@ -47,6 +47,7 @@ public class ATM {
                 2. Wpłacić gotówkę.
                 3. Wypłacić gotówkę.
                 4. Sprawdzić bilans.
+                0. Ładnie się pożegnaj.
                 ****************************************
                 Twój wybór: """);
 
@@ -54,15 +55,18 @@ public class ATM {
         switch (select) {
             case 1:
                 createNewAccount();
+                break;
             case 2:
                 deposit();
+                break;
             case 3:
                 withdrawal();
+                break;
             case 4:
                 Account account = authorization();
                 checkBalance(account);
                 start();
-            case 0:
+                break;
             default:
                 break;
         }
