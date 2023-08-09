@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         ATM test = new ATM("Moj Bank");
         initializeBank(test);
+        System.out.println("Koniec");
     }
 
     private static void initializeBank(ATM cashmachine) {

@@ -59,10 +59,12 @@ public class ATM {
             case 3:
                 withdrawal();
             case 4:
-                checkBalance(authorization());
+                Account account = authorization();
+                checkBalance(account);
                 start();
+            case 0:
             default:
-                start();
+                break;
         }
     }
 
