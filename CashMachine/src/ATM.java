@@ -53,29 +53,24 @@ public class ATM {
 
         int select = sc.nextInt();
         switch (select) {
-            case 1:
-                createNewAccount();
-                break;
-            case 2:
-                deposit();
-                break;
-            case 3:
-                withdrawal();
-                break;
-            case 4:
+            case 1 -> createNewAccount();
+            case 2 -> deposit();
+            case 3 -> withdrawal();
+            case 4 -> {
                 Account account = authorization();
                 checkBalance(account);
                 start();
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
     }
 
+    //Funkcja pozwala na wypłatę gotówki
     private void withdrawal() {
         Scanner sc = new Scanner(System.in);
         Account loggedAccount = authorization();
-        if(loggedAccount == null) {
+        if (loggedAccount == null) {
             System.out.println("Podałeś błędne dane.");
             start();
         } else {
@@ -86,13 +81,14 @@ public class ATM {
         }
     }
 
+    // Funkcja pozwala wpłatę gotówki na konto
     private void deposit() {
         Scanner sc = new Scanner(System.in);
         Account loggedAccount = authorization();
-        if(loggedAccount == null) {
+        if (loggedAccount == null) {
             System.out.println("Podałeś błędne dane.");
             start();
-        }else {
+        } else {
             System.out.print("Podaj kowtę wpłaty: ");
             double deposit = sc.nextDouble();
             balanceOperations(loggedAccount, deposit);
@@ -100,6 +96,7 @@ public class ATM {
         }
     }
 
+    //Funkcja loguje użykownika do jego konta
     private Account authorization() {
         Account account;
         Scanner sc = new Scanner(System.in);
@@ -118,6 +115,7 @@ public class ATM {
         return account;
     }
 
+    //Funkcja wyszukuje czy istnieje konto w tym banku
     private Account findAccount(int accNo) {
         for (Account acc : accountList) {
             if (acc.getAcNumber() == accNo) {
@@ -127,8 +125,9 @@ public class ATM {
         return null;
     }
 
+    //Funkcja pozwala na operacje gotówkowe na koncie
     private void balanceOperations(Account account, double amount) {
-        if(account.getAcBalance() + amount < 0){
+        if (account.getAcBalance() + amount < 0) {
             System.out.println("Nie posiadasz takiej ilości gotówki na koncie");
         } else {
             account.setAcBalance(account.getAcBalance() + amount);
@@ -136,6 +135,7 @@ public class ATM {
         checkBalance(account);
     }
 
+    //Funkcja sprawdza aktualny bilans na koncie
     private void checkBalance(Account account) {
         System.out.println("Aktualny stan konta to: " + account.getAcBalance());
     }
