@@ -54,23 +54,41 @@ public class ATM {
         switch (select) {
             case 1:
                 createNewAccount();
-
             case 2:
                 deposit();
             case 3:
+                withdrawal();
+            case 4:
+                checkBalance(authorization());
+                start();
+            default:
+                start();
+        }
+    }
 
+    private void withdrawal() {
+        Scanner sc = new Scanner(System.in);
+        Account loggedAccount = authorization();
+        if(loggedAccount == null) {
+            System.out.println("Podałeś błędne dane.");
+            start();
+        } else {
+            System.out.print("Podaj kowtę wpłaty: ");
+            double deposit = sc.nextDouble() * (-1);
+            balanceOperations(loggedAccount, deposit);
+            start();
         }
     }
 
     private void deposit() {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Podaj kowtę wpłaty: ");
-        double deposit = sc.nextDouble();
         Account loggedAccount = authorization();
         if(loggedAccount == null) {
             System.out.println("Podałeś błędne dane.");
             start();
         }else {
+            System.out.print("Podaj kowtę wpłaty: ");
+            double deposit = sc.nextDouble();
             balanceOperations(loggedAccount, deposit);
             start();
         }
@@ -104,8 +122,11 @@ public class ATM {
     }
 
     private void balanceOperations(Account account, double amount) {
-
-        account.setAcBalance(account.getAcBalance() + amount);
+        if(account.getAcBalance() + amount < 0){
+            System.out.println("Nie posiadasz takiej ilości gotówki na koncie");
+        } else {
+            account.setAcBalance(account.getAcBalance() + amount);
+        }
         checkBalance(account);
     }
 
