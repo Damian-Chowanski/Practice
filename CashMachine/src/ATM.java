@@ -10,6 +10,10 @@ public class ATM {
         accountList = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+
     public ArrayList<Account> getAccountList() {
         return accountList;
     }
@@ -26,7 +30,6 @@ public class ATM {
         int newPin = sc.nextInt();
         accountList.add(new Account(acNumber, newPin, 0.0));
         System.out.println("Twoje konto zostało utworzone. Numer twojego konta to: " + acNumber);
-        start();
     }
 
     //This metod generating new account number
@@ -36,68 +39,34 @@ public class ATM {
         } else return 1000;
     }
 
-    public void start() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.printf("Witaj w naszym banku %s \n", this.name);
-        System.out.print("""
-                ****************************************
-                Wybierz jaką operację chciałbyś wykonać:\s
-                1. Utworzyć nowe konto.
-                2. Wpłacić gotówkę.
-                3. Wypłacić gotówkę.
-                4. Sprawdzić bilans.
-                0. Ładnie się pożegnaj.
-                ****************************************
-                Twój wybór: """);
-
-        int select = sc.nextInt();
-        switch (select) {
-            case 1 -> createNewAccount();
-            case 2 -> deposit();
-            case 3 -> withdrawal();
-            case 4 -> {
-                Account account = authorization();
-                checkBalance(account);
-                start();
-            }
-            default -> {
-            }
-        }
-    }
-
     //Funkcja pozwala na wypłatę gotówki
-    private void withdrawal() {
+    void withdrawal() {
         Scanner sc = new Scanner(System.in);
         Account loggedAccount = authorization();
         if (loggedAccount == null) {
             System.out.println("Podałeś błędne dane.");
-            start();
         } else {
             System.out.print("Podaj kowtę wpłaty: ");
             double deposit = sc.nextDouble() * (-1);
             balanceOperations(loggedAccount, deposit);
-            start();
         }
     }
 
     // Funkcja pozwala wpłatę gotówki na konto
-    private void deposit() {
+    void deposit() {
         Scanner sc = new Scanner(System.in);
         Account loggedAccount = authorization();
         if (loggedAccount == null) {
             System.out.println("Podałeś błędne dane.");
-            start();
         } else {
             System.out.print("Podaj kowtę wpłaty: ");
             double deposit = sc.nextDouble();
             balanceOperations(loggedAccount, deposit);
-            start();
         }
     }
 
     //Funkcja loguje użykownika do jego konta
-    private Account authorization() {
+    Account authorization() {
         Account account;
         Scanner sc = new Scanner(System.in);
         System.out.println("Podaj numer konta");
@@ -136,7 +105,7 @@ public class ATM {
     }
 
     //Funkcja sprawdza aktualny bilans na koncie
-    private void checkBalance(Account account) {
-        System.out.println("Aktualny stan konta to: " + account.getAcBalance());
+    void checkBalance(Account account) {
+        System.out.println("Aktualny stan twojego konta to: " + account.getAcBalance());
     }
 }
