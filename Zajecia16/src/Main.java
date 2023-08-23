@@ -16,9 +16,9 @@ public class Main {
     private static void addAllNumbersFromFile(Scanner sc) {
         while (sc.hasNextLine()) {
             String x = sc.nextLine();
-            if (x.charAt(0) >= 48 && x.charAt(0) <= 57) {
+            try {
                 sum += Integer.parseInt(x);
-            } else {
+            } catch (NumberFormatException error){
                 errors++;
             }
         }
