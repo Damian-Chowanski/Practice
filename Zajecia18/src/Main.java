@@ -1,3 +1,5 @@
+
+
 public class Main {
     public static void main(String[] args) {
 
@@ -5,16 +7,17 @@ public class Main {
 
 
     public int zad1() {
-        int cyf1 = 50;
-        int cyf2 = 0;       //Zmień cyf1 na zmienną typu Integer
+        String cyf1 = "50";
+        int cyf2 = Integer.parseInt(cyf1);       //Zmień cyf1 na zmienną typu Integer
 
         System.out.println(cyf2);
         return cyf2;
     }
 
 
+
     public String zad2() {
-        String cyf1 = "50";
+        int cyf1 = 50;
         String cyf2 = "";  //Zmień cyf1 na zmienną typu String
 
         System.out.println(cyf2);
@@ -22,26 +25,29 @@ public class Main {
     }
 
 
-    public int zad3() {
-        int a = 50;
-        int b = 1024;
 
-        int c = a + b;  //Zsumuj zmienne 'a' i 'b' do zmiennej c (zmieniając ich typy)
+    public int zad3() {
+        String a = "50";
+        String b = "1024";
+
+        int c = 0;  //Zsumuj zmienne 'a' i 'b' do zmiennej c (zmieniając ich typy)
 
         System.out.println(c);
         return c;
     }
+
 
 
     public String zad4() {
-        String a = "1024";
-        String b = "2044";
+        int a = 1024;
+        int b = 2044;
 
-        String c = a + "-" + b;  //Zmień podane zmienne 'a' i 'b' na typy string a potem wyświetl je z myślnikiem pomiędzy aby uzystkac 1024-2044
+        String c = "";  //Zmień podane zmienne 'a' i 'b' na typy string a potem wyświetl je z myślnikiem pomiędzy aby uzystkac 1024-2044
 
         System.out.println(c);
         return c;
     }
+
 
 
     public int zad5() {
@@ -51,7 +57,7 @@ public class Main {
         String c = "200";
         String d = "12";
 
-        int sum = Integer.parseInt(a + b + c + d);
+        int sum = 0;
 
         //Zsumuj wszytskie stringi ze sobą a następnie zwróć ich w zmiennej 'sum';
         System.out.println(sum);
@@ -60,16 +66,19 @@ public class Main {
     }
 
 
-    public int zad6() {
-        int a = 5;
-        int b = 2;
-        int c = 8;
 
-        int n = a + b + c;   //Zmień typy char tak aby po zsumowaniu wszytskich do zmiennej 'n' otrzymać wynik 15
+    public int zad6() {
+        char a = '5';
+        char b = '2';
+        char c = '8';
+
+        int n = 0;   //Zmień typy char tak aby po zsumowaniu wszytskich do zmiennej 'n' otrzymać wynik 15
 
         System.out.println(n);
         return n;
     }
+
+
 
 
     public int zad7() {
@@ -77,11 +86,12 @@ public class Main {
         double b = 00.63;
         double c = 44.24;
 
-        int sum = (int) (a + b + c);
+        int sum = 0;
 
         //Uwtórz zmienną która zsumuję zmienne 'a', 'b', 'c' i zwróci wynik bez liczb po przecinku
         return sum;
     }
+
 
 
     public double zad8() {
@@ -90,7 +100,7 @@ public class Main {
         double c = 99.68;
         double d = 12.67;
 
-        double ans = a + b + c + d;
+        double ans = 0;
 
         //Zsumuj wszystkie zmienne ze sobą tak aby zwrócić wynik z liczbami po przecinku
 
@@ -98,18 +108,19 @@ public class Main {
     }
 
 
+
     public double zad9() {
-        double a = 5;
-        double b = 7;
+        char a = '5';
+        char b = '7';
         double c = 16.98;
         double d = 5.99;
-        double e = 13;
-        double f = 20;
-        double g = 12;
-        double h = 6.99;
+        int e = 13;
+        int f = 20;
+        String g = "12";
+        String h = "6.99";
 
 
-        double ans = a + b + c + d + e + f + g + h;
+        double ans = 0;
 
         //Dodaj wszystkie zmienne aby zwrócic ich sumę wraz z liczbami po przecinku
 
@@ -117,17 +128,19 @@ public class Main {
     }
 
 
-    public String zad10() {
+
+    public String  zad10() {
         double a = 149.99;
         double b = 258.61;
         double c = 1099.99;
         double d = 25999.99;
 
-        String sum = a + "zł, " + b + "zł, " + c + "zł, " + d + "zł";
+        String sum = "";
 
         //Wyświetl wszytskie zmienne w jednym ciągu z dodatkiem waluty 'zł' tak by zwrócić wynik -> 149.99zł, 258.61zł, 1099.99zł, 25999.99zł
         return sum;
     }
+
 
 
     public int zad11() {
@@ -135,40 +148,36 @@ public class Main {
         String b = "48";
         char c = '9';
 
-        int sum = Integer.parseInt(a) + Integer.parseInt(b) + Character.getNumericValue(c);
+        int sum = 0;
 
         //Zwróć sume zmiennych 'a', 'b', 'c' w typie integer
         return sum;
     }
 
 
+
     public boolean zad12() {
         char a = '6';
 
         boolean isDigit = false;
-        if (Character.isDigit(a)) {
-            isDigit = true;
-        }
 
         //Sprawdz czy zmienna 'a' to cyfra i zwórć true lub false;
         return isDigit;
     }
 
 
+
+
     public boolean zad13() {
         String a = "b";
 
-        boolean isTrue;
-        try {
-            Integer.parseInt(a);
-            isTrue = true;
-        } catch (NumberFormatException error) {
-            isTrue = false;
-        }
+        boolean isTrue = false;
 
         //Sprawdź czy zmienna 'a' to cyfra, zwróć true lub false
         return isTrue;
     }
+
+
 
 
     public int zad14() {
@@ -178,18 +187,6 @@ public class Main {
         char d = 'I';
 
         int z = 0;
-        try {
-            z += Integer.parseInt(a);
-        } catch (NumberFormatException err) {
-            return z;
-        }
-        if (Character.isDigit(b)) {
-            z += b;
-        }
-        z += (int) c;
-        if (Character.isDigit(d)) {
-            z += d;
-        }
 
         //Sprawdz każdą zmienną czy jest liczbą, jeśli tak zsumuj do zmiennej 'z' i zwróc.
 
@@ -198,13 +195,15 @@ public class Main {
     }
 
 
+
+
     public int zad15() {
         char a = '6';
         char b = '9';
         char c = '2';
         char d = '5';
 
-        int z = a * b * c * d;
+        int z = 0;
         //Pomnóż zmienne 'a', 'b', 'c', 'd' a sumę przypisz do zmiennej 'z' i zwróć
 
         return z;
