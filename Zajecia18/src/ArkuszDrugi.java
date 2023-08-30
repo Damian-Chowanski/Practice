@@ -68,7 +68,7 @@ public class ArkuszDrugi {
         int[][] randomTabNumber = new int[10][10];
         for (int i=0; i< randomTabNumber.length; i++){
             for (int j = 0; j< randomTabNumber.length; j++){
-                randomTabNumber[i][j] = rand.nextInt(0,50);
+                randomTabNumber[i][j] = rand.nextInt(0,51);
             }
         }
         //Każdy indeks tablicy 'randomTabNumber' ma zwracać losową liczbę z przedziłu 0 - 50;
