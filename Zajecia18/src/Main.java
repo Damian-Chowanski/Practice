@@ -5,7 +5,6 @@ public class Main {
 
     }
 
-
     public int zad1() {
         String cyf1 = "50";
         int cyf2 = Integer.parseInt(cyf1);       //Zmień cyf1 na zmienną typu Integer
