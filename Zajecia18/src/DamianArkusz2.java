@@ -1,9 +1,10 @@
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-public class ArkuszDrugi {
+public class DamianArkusz2 {
     Random rand = new Random();
 
     public int[] zad1() {
@@ -106,9 +107,10 @@ public class ArkuszDrugi {
     public boolean[] zad9() {
         String checkNumbers = "92as2dW23Wsc4WP59";
         boolean[] isDigit = new boolean[checkNumbers.length()];
+        char [] splitedStrng = checkNumbers.toCharArray();
 
         for (int i = 0; i < checkNumbers.length(); i++) {
-            isDigit[i] = Character.isDigit(checkNumbers.indexOf(i));
+            isDigit[i] = Character.isDigit(splitedStrng[i]);
         }
         //Sprawdź każdy indeks zmiennej 'checkNumbers' czy jest to cyfra, jeśli tak to temu samemu indeksowi tablicy 'isDigit' przypisz
         // true, w innym wypadku przypisz false.
@@ -123,7 +125,7 @@ public class ArkuszDrugi {
 
         double sum = 0;
         for (int i = 0; i < firstTab.length; i++) {
-            sum += Integer.parseInt(firstTab[i]) + Integer.parseInt(secondTab[i]) + Integer.parseInt(thirdTab[i]);
+            sum += Double.parseDouble(firstTab[i]) + Double.parseDouble(secondTab[i]) + Double.parseDouble(thirdTab[i]);
         }
         //Zsumuj wszytskie indeksy tablic 'firstTab', 'secondTab', 'thirdTab' do zmiennej 'sum'.
         return sum;
