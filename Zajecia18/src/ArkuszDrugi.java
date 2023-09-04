@@ -21,7 +21,7 @@ public class ArkuszDrugi {
         String[] wrongTab = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
         int[] correctTab = new int[wrongTab.length];
 
-        for (int i = 0; i< wrongTab.length; i++){
+        for (int i = 0; i < wrongTab.length; i++) {
             correctTab[i] = Integer.parseInt(wrongTab[i]);
         }
         //Każdy indeks tablicy 'wrongTab' przypisz do tego samego indeksu tablicy 'correctTab' tak aby były typu Integer.
@@ -33,7 +33,7 @@ public class ArkuszDrugi {
         char[] wrongTab = {'K', 'O', 'C', 'H', 'A', 'M', ' ', 'P', 'R', 'O', 'G', 'R', 'A', 'M', 'O', 'W', 'A', 'N', 'I', 'E'};
         String ans = "";
 
-        for(char letter : wrongTab){
+        for (char letter : wrongTab) {
             ans += letter;
         }
         //Zmienna 'ans' ma zwrócić każdy indeks tablicy 'wrongTab' jako jeden spójny tekst
@@ -45,7 +45,7 @@ public class ArkuszDrugi {
         String wrongText = "KOCHAM PROGRAMOWANIE";
         char[] ans = new char[wrongText.length()];
 
-        for (int i = 0; i < wrongText.length(); i++ ){
+        for (int i = 0; i < wrongText.length(); i++) {
             ans[i] = wrongText.charAt(i);
         }
         //Zmienna 'wrongText' ma zostać podzielona tak aby każda literka znajowała sie w oddzielnym indeksie tablicy 'ans';
@@ -56,8 +56,8 @@ public class ArkuszDrugi {
     public int[] zad5() {
         int[] randomTabNumber = new int[50];
 
-        for (int i = 0; i < randomTabNumber.length; i++){
-            randomTabNumber[i] = rand.nextInt(0,51);
+        for (int i = 0; i < randomTabNumber.length; i++) {
+            randomTabNumber[i] = rand.nextInt(0, 51);
         }
         //Każdy indeks tablicy 'randomTabNumber' ma zwracać losową liczbę z przedziłu 0 - 50;
         return randomTabNumber;
@@ -66,9 +66,9 @@ public class ArkuszDrugi {
 
     public int[][] zad6() {
         int[][] randomTabNumber = new int[10][10];
-        for (int i=0; i< randomTabNumber.length; i++){
-            for (int j = 0; j< randomTabNumber.length; j++){
-                randomTabNumber[i][j] = rand.nextInt(0,51);
+        for (int i = 0; i < randomTabNumber.length; i++) {
+            for (int j = 0; j < randomTabNumber.length; j++) {
+                randomTabNumber[i][j] = rand.nextInt(0, 51);
             }
         }
         //Każdy indeks tablicy 'randomTabNumber' ma zwracać losową liczbę z przedziłu 0 - 50;
@@ -80,8 +80,8 @@ public class ArkuszDrugi {
         int[] checkTab = {54, 67, 23, 78, 32, 23, 65, 99, 65, 10, 62, 33, 41, 48, 23, 12};
         boolean[] isCorrect = new boolean[checkTab.length];
 
-        for (int i = 0; i < checkTab.length; i++){
-            isCorrect[i] = checkTab[i]%3==0;
+        for (int i = 0; i < checkTab.length; i++) {
+            isCorrect[i] = checkTab[i] % 3 == 0;
         }
         //Jeżeli indeks tablicy 'checkTab' jest podzielny przez 3 to w tym samym indeksie tablicy 'isCorrect' wstaw true.
         return isCorrect;
@@ -94,7 +94,7 @@ public class ArkuszDrugi {
 
         int[] finalTab = new int[firstTab.length];
 
-        for (int i = 0; i < finalTab.length; i++){
+        for (int i = 0; i < finalTab.length; i++) {
             finalTab[i] = Integer.parseInt(firstTab[i]) * Character.getNumericValue(secondTab[i]);
         }
         //Każdy indeks tablicy 'firstTab' pomnóż przez ten sam indeks tablicy 'secondTab'. Wynik mnożenia przypisz do indeksu tablicy
@@ -106,10 +106,9 @@ public class ArkuszDrugi {
     public boolean[] zad9() {
         String checkNumbers = "92as2dW23Wsc4WP59";
         boolean[] isDigit = new boolean[checkNumbers.length()];
-        char [] tabOfChars = checkNumbers.toCharArray();
 
-        for (int i = 0; i < checkNumbers.length();i++){
-            isDigit[i] = Character.isDigit(tabOfChars[i]);
+        for (int i = 0; i < checkNumbers.length(); i++) {
+            isDigit[i] = Character.isDigit(checkNumbers.indexOf(i));
         }
         //Sprawdź każdy indeks zmiennej 'checkNumbers' czy jest to cyfra, jeśli tak to temu samemu indeksowi tablicy 'isDigit' przypisz
         // true, w innym wypadku przypisz false.
@@ -123,7 +122,7 @@ public class ArkuszDrugi {
         String[] thirdTab = new String[]{"762.90", "347.51", "288.07", "955.72", "284.61", "915.33", "970.52", "460.72", "284.51", "828.57"};
 
         double sum = 0;
-        for (int i = 0; i < firstTab.length; i++){
+        for (int i = 0; i < firstTab.length; i++) {
             sum += Integer.parseInt(firstTab[i]) + Integer.parseInt(secondTab[i]) + Integer.parseInt(thirdTab[i]);
         }
         //Zsumuj wszytskie indeksy tablic 'firstTab', 'secondTab', 'thirdTab' do zmiennej 'sum'.
@@ -133,9 +132,9 @@ public class ArkuszDrugi {
     //TABLICE DWUWYMIAROWE
     public int[][] zad11() {
         int[][] tab = new int[5][5];
-        for (int i = 0; i< tab.length; i++){
-            for (int j = 0; j< tab.length;j++){
-                tab[i][j] = rand.nextInt(0,21);
+        for (int i = 0; i < tab.length; i++) {
+            for (int j = 0; j < tab.length; j++) {
+                tab[i][j] = rand.nextInt(0, 21);
             }
         }
         //Wypełnij tablice losowymi liczbami z przedziału 0 - 20;
@@ -172,9 +171,9 @@ public class ArkuszDrugi {
         List<Integer> numbersDivisibleByTwo = new LinkedList<>();
 
         for (int[] x : tab) {
-            for (int j = 0; j < tab.length; j++) {
-                if (x[j] % 2 == 0) {
-                    numbersDivisibleByTwo.add(x[j]);
+            for (int i : x) {
+                if (i % 2 == 0) {
+                    numbersDivisibleByTwo.add(i);
                 }
             }
         }
