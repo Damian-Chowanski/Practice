@@ -1,5 +1,4 @@
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -107,7 +106,7 @@ public class DamianArkusz2 {
     public boolean[] zad9() {
         String checkNumbers = "92as2dW23Wsc4WP59";
         boolean[] isDigit = new boolean[checkNumbers.length()];
-        char [] splitedStrng = checkNumbers.toCharArray();
+        char[] splitedStrng = checkNumbers.toCharArray();
 
         for (int i = 0; i < checkNumbers.length(); i++) {
             isDigit[i] = Character.isDigit(splitedStrng[i]);
