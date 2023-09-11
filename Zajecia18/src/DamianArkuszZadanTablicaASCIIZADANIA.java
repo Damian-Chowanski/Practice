@@ -165,9 +165,11 @@ public class DamianArkuszZadanTablicaASCIIZADANIA {
         String outText = "";
 
         for (int[] x : tab) {
+            int sum = 0;
             for (int y : x) {
-                outText += (char) y;
+                sum += y;
             }
+            outText += (char) sum;
         }
 
         //Suma każdego rzędu tablicy dwuwymiarowej 'tab' reprezentuje literę, zmienna 'outText' ma zwracać słowo ukryte w tej tablicy.
