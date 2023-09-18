@@ -1,0 +1,4 @@
+Ilość linii w pliku: 11
+Ilość zdań w pliku: 36
+Ilość wyrazów: 598
+Ilość liter: 3827

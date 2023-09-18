@@ -1,9 +1,10 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class HistogramDamian {
-    static File path = new File("Histogram.txt");
     static int numberOfLetters = 0;
     static int numberOfLines = 0;
     static int numberOfSentences = 0;
@@ -17,9 +18,8 @@ public class HistogramDamian {
     */
     static String wholeTextFromFile = "";
 
-    public static void main(String[] args) throws FileNotFoundException {
-        Scanner sc = new Scanner(path);
-
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(new File("Histogram.txt"));
         readTheFileToString(sc); //Zczytuje pliku do zmiennej String "wholeTextFromFile" i zlicza ilość linii
         countSenteces();
         countWords();
@@ -28,6 +28,28 @@ public class HistogramDamian {
                 "Ilość zdań w pliku: " + numberOfSentences + "\n" +
                 "Ilość wyrazów: " + numberOfWords + "\n" +
                 "Ilość liter: " + numberOfLetters + "\n");
+        createFileToSaveResult();
+        saveResultToFile();
+    }
+
+    private static void createFileToSaveResult() throws IOException {
+        File file = new File("analiza.txt");
+        if (file.createNewFile()) {
+            System.out.println("plik został utworzony");
+        } else {
+            System.out.println("Wykryto plik o tej samej nazwie. Plik zostanie nadpisany. \nDokup wersje premium jeśli chcesz żebym pytał czy nadpisywać :)");
+        }
+    }
+
+    private static void saveResultToFile() throws IOException {
+
+        FileWriter myWriter = new FileWriter("analiza.txt");
+        myWriter.write("Ilość linii w pliku: " + numberOfLines + "\n" +
+                    "Ilość zdań w pliku: " + numberOfSentences + "\n" +
+                    "Ilość wyrazów: " + numberOfWords + "\n" +
+                    "Ilość liter: " + numberOfLetters + "\n");
+        myWriter.close();
+        System.out.println("Dane zostały zapisane do pliku analiza.txt");
 
     }
 
