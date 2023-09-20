@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Hashtable;
+
 public class Student {
     private int ID;
     private String lastname;
@@ -5,6 +10,9 @@ public class Student {
     private String street;
     private int home;
     private String classID;
+    private int sumOfMarks;
+    private int qtyOfMarks;
+
 
     public Student(int ID, String lastname, String name, String street, int home, String classID) {
         this.ID = ID;
@@ -13,6 +21,26 @@ public class Student {
         this.street = street;
         this.home = home;
         this.classID = classID;
+    }
+
+    public double countAverage(){
+        return (double) sumOfMarks/qtyOfMarks;
+    }
+
+    public int getSumOfMarks() {
+        return sumOfMarks;
+    }
+
+    public void setSumOfMarks(int sumOfMarks) {
+        this.sumOfMarks = sumOfMarks;
+    }
+
+    public int getQtyOfMarks() {
+        return qtyOfMarks;
+    }
+
+    public void setQtyOfMarks(int qtyOfMarks) {
+        this.qtyOfMarks = qtyOfMarks;
     }
 
     public int getID() {
