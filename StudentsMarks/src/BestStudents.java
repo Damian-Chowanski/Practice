@@ -2,12 +2,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class Main {
+public class BestStudents {
     static Scanner sc;
 
     public static void main(String[] args) throws FileNotFoundException {
-        ArrayList<String[]> students = loadStudentsData("uczniowie.txt");
-        ArrayList<String> avarages = loadAvarages("oceny.txt", students);
+        ArrayList<String[]> students = loadStudentsData();
+        ArrayList<String> avarages = countAvarages("oceny.txt", students);
         Collections.sort(avarages);
 
         for (int i = 1; i < 4; i++) {
@@ -15,8 +15,8 @@ public class Main {
         }
     }
 
-    private static ArrayList<String[]> loadStudentsData(String file) throws FileNotFoundException {
-        sc = new Scanner(new File(file));
+    private static ArrayList<String[]> loadStudentsData() throws FileNotFoundException {
+        sc = new Scanner(new File("uczniowie.txt"));
         ArrayList<String[]> students = new ArrayList<>();
         sc.nextLine();
         while (sc.hasNextLine()) {
@@ -25,25 +25,25 @@ public class Main {
         return students;
     }
 
-    private static ArrayList<String> loadAvarages(String file, ArrayList<String[]> students) throws FileNotFoundException {
+    private static ArrayList<String> countAvarages(String file, ArrayList<String[]> students) throws FileNotFoundException {
         sc = new Scanner(new File(file));
         sc.nextLine();
-        ArrayList<String[]> loadedData = new ArrayList<>();
+        ArrayList<String[]> loadedLinesFromFile = new ArrayList<>();
         ArrayList<String> avarages = new ArrayList<>();
         while (sc.hasNextLine()) {
-            loadedData.add(sc.nextLine().split(";"));
+            loadedLinesFromFile.add(sc.nextLine().split(";"));
         }
 
         for (String[] student : students) {
-            double sumOfMarks = 0;
-            int qtyOfMarks = 0;
-            for (String[] marks : loadedData) {
+            double sumOfDegrees = 0;
+            int qtyOfGrades = 0;
+            for (String[] marks : loadedLinesFromFile) {
                 if (student[0].equals(marks[0])) {
-                    sumOfMarks += Double.parseDouble(marks[1]);
-                    qtyOfMarks++;
+                    sumOfDegrees += Double.parseDouble(marks[1]);
+                    qtyOfGrades++;
                 }
             }
-            avarages.add(sumOfMarks / qtyOfMarks + " " + student[2] + " " + student[1]);
+            avarages.add(sumOfDegrees / qtyOfGrades + " " + student[2] + " " + student[1]);
         }
         return avarages;
     }
