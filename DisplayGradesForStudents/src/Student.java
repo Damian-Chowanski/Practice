@@ -1,4 +1,3 @@
-import javax.security.auth.Subject;
 import java.util.ArrayList;
 
 public class Student {
@@ -33,7 +32,59 @@ public class Student {
         this.subject = new ArrayList<Subject>();
     }
 
+    public String getStudentID() {
+        return studentID;
+    }
+
+    public void setStudentID(String studentID) {
+        this.studentID = studentID;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getHome() {
+        return home;
+    }
+
+    public void setHome(String home) {
+        this.home = home;
+    }
+
+    public String getClassID() {
+        return classID;
+    }
+
+    public void setClassID(String classID) {
+        this.classID = classID;
+    }
+
     public ArrayList<Subject> getSubject() {
         return subject;
+    }
+
+    public void setSubject(ArrayList<Subject> subject) {
+        this.subject = subject;
     }
 }
