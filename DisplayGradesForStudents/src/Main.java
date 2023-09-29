@@ -10,11 +10,28 @@ public class Main {
         loadStudents();
         loadSubjects();
         loadGrades();
+        ArrayList<Grades> grade2 = students.get(0).getSubject().get(0).getGrades();
+
+        for (Student student: students){
+            System.out.println(student.getName() + student.getLastName());
+            for (Subject subject: student.getSubject()){
+                System.out.println("    " + subject.getName() + ": ");
+                System.out.print("      ");
+                for (Grades grade: subject.getGrades()){
+                    System.out.print(grade.getGrade() + " ");
+                }
+                System.out.println();
+            }
+        }
+
+
+
     }
 
     private static void loadGrades() throws FileNotFoundException {
         sc = new Scanner(new File("oceny.txt"));
         sc.nextLine();
+        //IDucznia;Ocena;Data;IDprzedmiotu
         while (sc.hasNextLine()){
             String[] loadedLine = sc.nextLine().split(";");
             Student actualStudent = students.get(Integer.parseInt(loadedLine[0])-1);
