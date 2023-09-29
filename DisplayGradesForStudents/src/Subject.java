@@ -5,14 +5,14 @@ public class Subject {
     private String name;
     private String teacherLastName;
     private String techerName;
-    private ArrayList<Grade> grades;
+    private ArrayList<Grade> listOfGrades;
 
     public Subject(String subjectID, String name, String teacherLastName, String techerName) {
         this.subjectID = subjectID;
         this.name = name;
         this.teacherLastName = teacherLastName;
         this.techerName = techerName;
-        this.grades = new ArrayList<>();
+        this.listOfGrades = new ArrayList<>();
     }
 
     public String getSubjectID() {
@@ -47,12 +47,12 @@ public class Subject {
         this.techerName = techerName;
     }
 
-    public ArrayList<Grade> getGrades() {
-        return grades;
+    public ArrayList<Grade> getListOfGrades() {
+        return listOfGrades;
     }
 
-    public void setGrades(ArrayList<Grade> grades) {
-        this.grades = grades;
+    public void setListOfGrades(ArrayList<Grade> listOfGrades) {
+        this.listOfGrades = listOfGrades;
     }
 
     @Override

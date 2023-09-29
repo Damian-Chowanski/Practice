@@ -1,5 +1,4 @@
 public class Grade {
-    //IDucznia;Ocena;Data;IDprzedmiotu
     private String grade;
     private String date;
 

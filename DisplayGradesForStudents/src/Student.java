@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 
 public class Student {
-    //IDucznia;nazwisko;imie;ulica;dom;IDklasy
     private String studentID;
     private String lastName;
     private String name;
     private String street;
     private String home;
     private String classID;
-    private ArrayList<Subject> subject;
+    private ArrayList<Subject> listOfSubjects;
 
     @Override
     public String toString() {
@@ -29,7 +28,7 @@ public class Student {
         this.street = street;
         this.home = home;
         this.classID = classID;
-        this.subject = new ArrayList<Subject>();
+        this.listOfSubjects = new ArrayList<Subject>();
     }
 
     public String getStudentID() {
@@ -80,11 +79,11 @@ public class Student {
         this.classID = classID;
     }
 
-    public ArrayList<Subject> getSubject() {
-        return subject;
+    public ArrayList<Subject> getListOfSubjects() {
+        return listOfSubjects;
     }
 
-    public void setSubject(ArrayList<Subject> subject) {
-        this.subject = subject;
+    public void setListOfSubjects(ArrayList<Subject> listOfSubjects) {
+        this.listOfSubjects = listOfSubjects;
     }
 }
