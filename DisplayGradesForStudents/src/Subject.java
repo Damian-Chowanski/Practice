@@ -5,7 +5,7 @@ public class Subject {
     private String name;
     private String teacherLastName;
     private String techerName;
-    private ArrayList<Grades> grades;
+    private ArrayList<Grade> grades;
 
     public Subject(String subjectID, String name, String teacherLastName, String techerName) {
         this.subjectID = subjectID;
@@ -47,11 +47,11 @@ public class Subject {
         this.techerName = techerName;
     }
 
-    public ArrayList<Grades> getGrades() {
+    public ArrayList<Grade> getGrades() {
         return grades;
     }
 
-    public void setGrades(ArrayList<Grades> grades) {
+    public void setGrades(ArrayList<Grade> grades) {
         this.grades = grades;
     }
 

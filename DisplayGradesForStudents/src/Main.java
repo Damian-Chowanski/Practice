@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,48 +11,56 @@ public class Main {
         loadStudents();
         loadSubjects();
         loadGrades();
-        ArrayList<Grades> grade2 = students.get(0).getSubject().get(0).getGrades();
+        ArrayList<Grade> grade2 = students.get(413).getSubject().get(0).getGrades();
 
-        for (Student student: students){
+
+        for (Student student : students) {
+            System.out.println(student.getName() + " " + student.getLastName());
+            for (int i =0; i<student.getSubject().size(); i++){
+                System.out.println("  " + student.getSubject().get(i).getName() + ": ");
+                System.out.print("    ");
+                for (int j=0; j< student.getSubject().get(i).getGrades().size(); j++){
+                    System.out.print(student.getSubject().get(i).getGrades().get(j).getGrade() + " ");
+                }
+                System.out.println();
+            }
+
+        }
+
+        /*for (Student student: students){
             System.out.println(student.getName() + student.getLastName());
             for (Subject subject: student.getSubject()){
                 System.out.println("    " + subject.getName() + ": ");
                 System.out.print("      ");
-                for (Grades grade: subject.getGrades()){
-                    System.out.print(grade.getGrade() + " ");
+                for (Grade grade: subject.getGrades()){
+                    System.out.print(grade.getGrade() + " " + grade.getDate());
                 }
                 System.out.println();
             }
-        }
-
-
-
+        }*/
     }
 
     private static void loadGrades() throws FileNotFoundException {
         sc = new Scanner(new File("oceny.txt"));
         sc.nextLine();
-        //IDucznia;Ocena;Data;IDprzedmiotu
         while (sc.hasNextLine()){
             String[] loadedLine = sc.nextLine().split(";");
             Student actualStudent = students.get(Integer.parseInt(loadedLine[0])-1);
             Subject actualSubject = actualStudent.getSubject().get(Integer.parseInt(loadedLine[3])-1);
-            actualSubject.getGrades().add(new Grades(loadedLine[1],loadedLine[2]));
+            actualSubject.getGrades().add(new Grade(loadedLine[1],loadedLine[2]));
         }
     }
 
     private static void loadSubjects() throws FileNotFoundException {
         sc = new Scanner(new File("przedmioty.txt"));
         sc.nextLine();
-        ArrayList<Subject> subject = new ArrayList<>();
         while (sc.hasNextLine()){
             String[] actualLine = sc.nextLine().split(";");
-            subject.add(new Subject(actualLine[0],
-                    actualLine[1],
-                    actualLine[2],
-                    actualLine[3]));
             for (Student student : students){
-                student.setSubject(subject);
+                student.getSubject().add(new Subject(actualLine[0],
+                        actualLine[1],
+                        actualLine[2],
+                        actualLine[3]));
             }
         }
     }

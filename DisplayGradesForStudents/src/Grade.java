@@ -1,9 +1,9 @@
-public class Grades {
+public class Grade {
     //IDucznia;Ocena;Data;IDprzedmiotu
     private String grade;
     private String date;
 
-    public Grades(String grade, String date) {
+    public Grade(String grade, String date) {
         this.grade = grade;
         this.date = date;
     }
