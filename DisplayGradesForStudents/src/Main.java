@@ -9,6 +9,18 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         loadStudents();
         loadSubjects();
+        loadGrades();
+    }
+
+    private static void loadGrades() throws FileNotFoundException {
+        sc = new Scanner(new File("oceny.txt"));
+        sc.nextLine();
+        while (sc.hasNextLine()){
+            String[] loadedLine = sc.nextLine().split(";");
+            Student actualStudent = students.get(Integer.parseInt(loadedLine[0])-1);
+            Subject actualSubject = actualStudent.getSubject().get(Integer.parseInt(loadedLine[3])-1);
+            actualSubject.getGrades().add(new Grades(loadedLine[1],loadedLine[2]));
+        }
     }
 
     private static void loadSubjects() throws FileNotFoundException {
