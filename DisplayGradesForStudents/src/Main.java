@@ -22,7 +22,7 @@ public class Main {
                     actualLine[2],
                     actualLine[3]));
             for (Student student : students){
-                student.getSubject()
+                student.setSubject(subject);
             }
         }
     }
