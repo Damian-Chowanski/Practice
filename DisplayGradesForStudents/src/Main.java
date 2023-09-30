@@ -11,7 +11,39 @@ public class Main {
         loadStudents();
         loadSubjects();
         loadGrades();
-        displayGrades();
+        //displayGrades();
+        displayStudentsSubjectsWhithoutGradeOne();
+    }
+
+    private static void displayStudentsSubjectsWhithoutGradeOne() {
+        for (Student student : listOfStudents) {
+            System.out.println(student.getName() + " " + student.getLastName());
+            ArrayList<Subject> subjects = student.getListOfSubjects();
+
+            for (Subject subject : subjects) {
+                boolean isGradeOne = false;
+                if (!(subject.getListOfGrades().isEmpty())) {
+                    ArrayList<Grade> grades = subject.getListOfGrades();
+                    for (Grade grade : grades) {
+                        if (grade.getGrade().equals("1")) {
+                            isGradeOne = true;
+                            break;
+                        }
+                    }
+                } else {
+                    isGradeOne = true;
+                }
+
+                if (!isGradeOne) {
+                    System.out.println("    " + subject.getName() + ": ");
+                    System.out.print("      ");
+                    for (Grade x : subject.getListOfGrades()) System.out.print(x.getGrade() + " ");
+                    System.out.println();
+                }
+            }
+            System.out.println();
+
+        }
     }
 
     private static void displayGrades() {
