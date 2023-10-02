@@ -40,10 +40,9 @@ public class Main {
             }
         }
         for (int i =0; i < sumOfGrades.length; i++){
-            percentOfMarkF.add(String.format("%.2f",sumOfGrades[i]/sumOfMarkF[i])  + "% " +
+            percentOfMarkF.add(String.format("%.2f", (sumOfMarkF[i]/sumOfGrades[i])*100)  + "% " +
                     listOfStudents.get(0).getListOfSubjects().get(i).getTecherName() + " " +
-                    listOfStudents.get(0).getListOfSubjects().get(i).getTeacherLastName() +
-                    " ilość wystawionych ocen: " + sumOfGrades[7] + " " + sumOfMarkF[7]);
+                    listOfStudents.get(0).getListOfSubjects().get(i).getTeacherLastName());
         }
 
         Collections.sort(percentOfMarkF);
@@ -53,7 +52,7 @@ public class Main {
 
         /*for (int i = 0; i < sumOfGrades.length; i++) {
             System.out.println(listOfStudents.get(0).getListOfSubjects().get(i).getName() + " " +
-                    sumOfGrades[i] + " " + sumOfMarkF[i] + " " + (sumOfGrades[i]/sumOfMarkF[i]));
+                    sumOfGrades[i] + " " + sumOfMarkF[i] + " " + (sumOfMarkF[i]/sumOfGrades[i])*100);
         }*/
 
     }
