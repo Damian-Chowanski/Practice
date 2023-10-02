@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -12,7 +13,43 @@ public class Main {
         loadSubjects();
         loadGrades();
         //displayGrades();
-        displayStudentsSubjectsWhithoutGradeOne();
+        //displayStudentsSubjectsWhithoutGradeOne();
+        displayTeacherWithHighestNumberOfF();
+    }
+
+    private static void displayTeacherWithHighestNumberOfF() {
+        ArrayList<String> percentOfMarkF = new ArrayList<>();
+        double[] sumOfGrades = new double[listOfStudents.get(0).getListOfSubjects().size()];
+        double[] sumOfMarkF = new double[listOfStudents.get(0).getListOfSubjects().size()];
+
+        for (int i = 0; i < sumOfGrades.length; i++) {
+            sumOfMarkF[i] = 0;
+            sumOfGrades[i] = 0;
+        }
+
+        for (Student student : listOfStudents) {
+            ArrayList<Subject> subjects = student.getListOfSubjects();
+            for (int i = 0; i < subjects.size(); i++) {
+                ArrayList<Grade> grades = subjects.get(i).getListOfGrades();
+                for (Grade grade : grades) {
+                    if (grade.getGrade().equals("1")) {
+                        sumOfGrades[i] += 1;
+                        sumOfMarkF[i] += 1;
+                    } else sumOfGrades[i] += 1;
+                }
+            }
+        }
+        for (int i =0; i < sumOfGrades.length; i++){
+            percentOfMarkF.add(String.format("%.2f",sumOfGrades[i]/sumOfMarkF[i])  + "% " +
+                    listOfStudents.get(0).getListOfSubjects().get(i).getTecherName() + " " +
+                    listOfStudents.get(0).getListOfSubjects().get(i).getTeacherLastName());
+        }
+
+        Collections.sort(percentOfMarkF);
+        for (int i = 1; i < 4; i++) {
+            System.out.println(percentOfMarkF.get(percentOfMarkF.size()-i));
+        }
+
     }
 
     private static void displayStudentsSubjectsWhithoutGradeOne() {
